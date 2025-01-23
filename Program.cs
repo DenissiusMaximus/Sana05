@@ -149,6 +149,9 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        Console.InputEncoding = System.Text.Encoding.UTF8;
+
         List<LibraryItem> libraryItems = new List<LibraryItem>
         {
             new Book("Гаррі Поттер", "Хід королеви", 2019, 267),
