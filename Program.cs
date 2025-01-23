@@ -1,4 +1,4 @@
-﻿abstract class LibraryItem
+abstract class LibraryItem
 {
     public string Title { get; set; }
     public string Author { get; set; }
@@ -14,7 +14,17 @@
     public abstract void DisplayInfo();
 }
 
-record BorrowInfo(string BorrowerName, DateTime BorrowDate);
+record BorrowInfo
+{
+    public string BorrowerName { get; init; }
+    public DateTime BorrowDate { get; init; }
+
+    public BorrowInfo(string borrowerName, DateTime borrowDate)
+    {
+        BorrowerName = borrowerName;
+        BorrowDate = borrowDate;
+    }
+};
 
 interface IBorrowable
 {
@@ -142,7 +152,7 @@ class Program
         List<LibraryItem> libraryItems = new List<LibraryItem>
         {
             new Book("Гаррі Поттер", "Хід королеви", 2019, 267),
-            new Journal("Наука", "Редакція", 2023, "№5"),
+            new Journal("Наука", "Видавництво старого лева", 2023, "№5"),
             new EBook("C# для початківців", "Джон Сміт", 2020, "PDF")
         };
 
